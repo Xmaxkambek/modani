@@ -13,13 +13,11 @@ class _FooterWidgetState extends State<FooterWidget> {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 40),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 70,
+      ),
       child: Row(
         children: [
-          // ignore: prefer_const_constructors
-          SizedBox(
-            width: 30,
-          ),
           // ignore: prefer_const_constructors
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -29,22 +27,27 @@ class _FooterWidgetState extends State<FooterWidget> {
                 'About Us',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Store Locations',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Carrers',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Contacts Us',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Report a Claim',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Financing',
                 style: TextStyle(color: Colors.white),
@@ -61,22 +64,27 @@ class _FooterWidgetState extends State<FooterWidget> {
                 'Accessibility',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Shipping/Returns',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Sales & Promotins',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Privacy Plicy',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Company Policy',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'FAQ s',
                 style: TextStyle(color: Colors.white),
@@ -93,22 +101,27 @@ class _FooterWidgetState extends State<FooterWidget> {
                 'Terms & Conditions',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Designer Consultation',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Room Planner',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Trade Program',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Virtual Design',
                 style: TextStyle(color: Colors.white),
               ),
+              // SizedBox(height: 10),
               Text(
                 'Product Care',
                 style: TextStyle(color: Colors.white),
@@ -192,9 +205,6 @@ class _FooterWidgetState extends State<FooterWidget> {
               ],
             ),
           ),
-          const SizedBox(
-            width: 70,
-          )
         ],
       ),
     );
