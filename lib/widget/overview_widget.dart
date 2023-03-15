@@ -96,7 +96,7 @@ class _OverViewState extends State<OverView> {
         ),
         SliverToBoxAdapter(
           child: SizedBox(
-            height: 40,
+            height: 100,
           ),
         ),
         // SliverToBoxAdapter(
