@@ -2,9 +2,11 @@
 
 class Strings {
   static var oneTitle =
+      // ignore: unnecessary_string_escapes
       '\"Very helpful,non pushy sales,allowed me to move furniture in store to help me\nschoose a different color combination that was showcased, Betsy satisfied with service\nand product\"';
   static var oneSubtitle = 'Joey k., Fort Launderdaleimage.png';
   static var twoTitle =
+      // ignore: unnecessary_string_escapes
       '\"Staff seemed friendly enough. The selection of furniture was outstanding.. The price\nfor the quality was fair.I would come back for some of the pieces form here\"';
   static var twoSubtitle = 'Nena Kaylyn, Atlanta, GA';
   static var threeTitle =
