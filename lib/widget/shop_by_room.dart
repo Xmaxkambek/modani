@@ -30,7 +30,7 @@ class _ShopByRoomState extends State<ShopByRoom> {
     return Container(
       width: double.infinity,
       alignment: Alignment.center,
-      color: Colors.grey,
+      color: const Color.fromRGBO(245, 245, 245, 1),
       child: Column(
         // ignore: prefer_const_literals_to_create_immutables
         children: [
@@ -52,9 +52,7 @@ class _ShopByRoomState extends State<ShopByRoom> {
             itemCount: _item.length,
             shrinkWrap: true,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 1.0,
-              mainAxisSpacing: 5,
-              crossAxisSpacing: 5,
+              childAspectRatio: 1.7,
               crossAxisCount: 3,
             ),
             itemBuilder: (context, index) {
