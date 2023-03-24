@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'modani_furniture.dart';
+
 class ShopByRoom extends StatefulWidget {
   const ShopByRoom({super.key});
 
@@ -70,11 +72,12 @@ class _ShopByRoomState extends State<ShopByRoom> {
                   Text(
                     item[index].toUpperCase(),
                     style: const TextStyle(fontSize: 20),
-                  )
+                  ),
                 ],
               );
             },
-          )
+          ),
+         const  Furniture()
         ],
       ),
     );

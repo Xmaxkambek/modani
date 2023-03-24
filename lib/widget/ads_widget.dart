@@ -18,7 +18,6 @@ class _ReklamaWidgetState extends State<ReklamaWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               const SizedBox(width: 20),
-
               // ignore: prefer_const_constructors
               Column(
                 children: [
@@ -49,7 +48,6 @@ class _ReklamaWidgetState extends State<ReklamaWidget> {
                 ],
               ),
               const SizedBox(width: 30),
-
               // ignore: prefer_const_constructors
               Column(
                 children: [
@@ -80,7 +78,6 @@ class _ReklamaWidgetState extends State<ReklamaWidget> {
                 ],
               ),
               const SizedBox(width: 30),
-
               // ignore: prefer_const_constructors
               InkWell(
                 onTap: () {},

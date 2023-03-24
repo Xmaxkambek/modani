@@ -5,15 +5,12 @@ import 'package:modani/services/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 // ignore: must_be_immutable
-class AppBarWidget extends StatefulWidget {
-  int id;
-  AppBarWidget({super.key, this.id = 0});
+class AppBarWidget extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
+  int? catalogid;
+  dynamic valueId;
+  AppBarWidget({super.key, this.catalogid, this.valueId});
 
-  @override
-  State<AppBarWidget> createState() => _AppBarWidgetState();
-}
-
-class _AppBarWidgetState extends State<AppBarWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -99,6 +96,7 @@ class _AppBarWidgetState extends State<AppBarWidget> {
         FutureBuilder(
           future: getCatalog(),
           builder: (context, snapshot) {
+            print('object');
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Center(
                 child: SpinKitThreeBounce(
@@ -114,45 +112,43 @@ class _AppBarWidgetState extends State<AppBarWidget> {
                     snapshot.data!.length,
                     (index) => Row(
                       children: [
-                        DropdownButton(
+                        DropdownButton<dynamic>(
                           icon: Icon(
                             Icons.arrow_drop_down,
                             color: Colors.white,
                           ),
-                          value: '${snapshot.data![index]['name']}',
+                          value: '$valueId',
                           items: [
                             DropdownMenuItem(
                               child: FutureBuilder(
-                                future: getSubCatalog(),
+                                future: getSubCatalog(catalogid!),
                                 builder: (context, snapshot) {
+                                  print('object');
+                                  valueId = snapshot.data![index]["id"]
+                                      ["sub_category"][index]["names"];
+
                                   if (snapshot.connectionState ==
                                       ConnectionState.waiting) {
-                                    return Center(child: Text(''));
-                                  } else if (snapshot.hasData) {
-                                    return ListView.builder(
-                                      shrinkWrap: true,
-                                      itemCount: snapshot.data!.length,
-                                      itemBuilder: (context, index) {
-                                        return Text(
-                                          '${snapshot.data![index]['name']}',
-                                        );
-                                      },
+                                    return Center(
+                                      child: SpinKitThreeBounce(
+                                        color: Colors.black,
+                                        size: 20.0,
+                                      ),
                                     );
+                                  } else if (snapshot.hasData) {
+                                    return Text('$valueId');
                                   } else {
                                     return Center(
-                                      child: Text('Error'),
+                                      child: Placeholder(),
                                     );
                                   }
                                 },
                               ),
-                              value: '${snapshot.data![index]['name']}',
+                              value: '$valueId',
                             ),
                           ],
                           onChanged: (value) {},
                         ),
-                        SizedBox(
-                          width: 50,
-                        )
                       ],
                     ),
                   ),
@@ -169,3 +165,52 @@ class _AppBarWidgetState extends State<AppBarWidget> {
     );
   }
 }
+
+//  FutureBuilder(
+  //         future: getCatalog(),
+  //         builder: (context, snapshot) {
+  //           if (snapshot.hasData) {
+  //             return SingleChildScrollView(
+  //               scrollDirection: Axis.horizontal,
+  //               child: Row(
+  //                 children: List.generate(
+  //                   snapshot.data!.length,
+  //                   (index) => Row(
+  //                     children: [
+  //                       DropdownButton<String>(
+  //                         icon: Icon(
+  //                           Icons.arrow_drop_down,
+  //                           color: Colors.white,
+  //                         ),
+  //                         value: '${snapshot.data![index]['name']}',
+  //                         items: snapshot.data![index]["sub_category"]
+  //                             .map<DropdownMenuItem<String>>((e) =>
+  //                                 DropdownMenuItem<String>(
+  //                                   child: e['name'],
+  //                                   value: '${snapshot.data![index]['name']}',
+  //                                 ))
+  //                             .toList(),
+  //                         onChanged: (value) {},
+  //                       ),
+  //                       SizedBox(
+  //                         width: 50,
+  //                       )
+  //                     ],
+  //                   ),
+  //                 ),
+  //               ),
+  //             );
+  //           } else if (snapshot.connectionState == ConnectionState.waiting) {
+  //             return Center(
+  //               child: SpinKitThreeBounce(
+  //                 color: Colors.black,
+  //                 size: 20.0,
+  //               ),
+  //             );
+  //           } else {
+  //             return Center(
+  //               child: Text(snapshot.error.toString()),
+  //             );
+  //           }
+  //         },
+  //       )

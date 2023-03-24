@@ -19,16 +19,16 @@ Future<List> getCatalog() async {
   return data;
 }
 
-Future<List> getSubCatalog() async {
+Future<List> getSubCatalog(int id) async {
   // print('object');
   final response = await http.get(
-    Uri.parse('$baseUrl/get_subproduct/'),
+    Uri.parse('$baseUrl/get_subproduct/$id'),
   );
   // print(response.statusCode);
   // print(response.body);
   List data = jsonDecode(response.body);
   // print(data.runtimeType);
-  // print('object');
+  print(data);
 
   return data;
 }
